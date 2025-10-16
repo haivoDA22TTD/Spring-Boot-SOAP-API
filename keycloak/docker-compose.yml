@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:6
+    container_name: employee-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0.3
+    container_name: keycloak
+    command: start-dev
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    # optional: if you have realm export json, mount it and add --import-realm to command
+
+  app:
+    build: .
+    container_name: employee-soap-app
+    depends_on:
+      - mongo
+      - keycloak
+    ports:
+      - "8081:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    restart: on-failure
+
+volumes:
+  mongo_data:
