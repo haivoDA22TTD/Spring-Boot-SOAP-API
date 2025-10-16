@@ -21,7 +21,7 @@ Dự án demo một hệ thống SOAP API bảo mật bằng Keycloak, xây dự
 - <img src="https://img.shields.io/badge/Keycloak-Auth-blueviolet?logo=keycloak" /> **Keycloak Authentication & Authorization**
 - <img src="https://img.shields.io/badge/Docker-Container-blue?logo=docker" /> **Docker / Docker Compose**
 
-<p align="center">
+<p align="column">
   <img width="389" height="360" alt="image" src="https://github.com/user-attachments/assets/d60b745e-5442-40d6-8c2e-99f8f603a338" />
   <img width="375" height="127" alt="image" src="https://github.com/user-attachments/assets/a5ea77cc-7f25-4c61-a4bc-e1345632dfb0" />
 </p>
